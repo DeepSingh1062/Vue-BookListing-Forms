@@ -20,9 +20,10 @@
 </template>
 
 <script>
+import _ from "lodash";
 import BookItem from "./BookItem";
 import BookForm from "./BookForm";
-import _ from "lodash";
+
 export default {
   name: "BookList",
   data() {
@@ -51,8 +52,8 @@ export default {
       ],
       filters:["bought","borrowed"],
       holding:"bought",
-      searchInput: ""
-    }
+      searchInput:""
+    };
   },
   components: {
     BookItem,
@@ -65,7 +66,7 @@ export default {
     searchedBooks(){
       const searchFilter = book => {
         return book.title.toLowerCase().match(this.searchInput.toLowerCase());
-      }
+      };
       return _.filter(this.books,searchFilter);
     }
   },
